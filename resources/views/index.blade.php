@@ -431,26 +431,22 @@
       </div>
       <div class="row">
         <div class="col-md-6">
-          <form action="{{route('envoie_de_mail')}}" method="POST">
-            @csrf
-            <div>
-              <input type="text" placeholder="Votre nom et prénom" name="nom_prenom" required />
-            </div>
-            <div>
-              <input type="text" placeholder="Votre numero de téléphone" name="telephone" required />
-            </div>
-            <div>
-              <input type="text" placeholder="Votre adresse email" name="email" required />
-            </div>
-            <div>
-              <input type="text" class="message-box" placeholder="Message" name="message" required />
-            </div>
-            <div class="d-flex ">
-              <button type="submit">
-                ENVOYER
-              </button>
-            </div>
-          </form>
+          <div style="margin-top:130px">
+            <form action=" {{route('envoie_de_mail')}}" method="POST">
+              @csrf
+              <div>
+                <input type="text" placeholder="Votre adresse email" name="nom_prenom" required />
+              </div>
+              <div>
+                <input type="text" placeholder="Votre préoccupation" name="description" required />
+              </div>
+              <div class="d-flex ">
+                <button type="submit">
+                  ENVOYER
+                </button>
+              </div>
+            </form>
+          </div>
         </div>
         <div class="col-md-6">
           <!-- <div class="map_container">

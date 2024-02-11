@@ -12,7 +12,7 @@ Route::get('/Accueil', function () {
     return view('index');
 })->name('index');
 
-Route::get('/Télechargement du CV',[downloadController::class,'telechargerCv'])->name('downloadcv');
+Route::get('/Télechargement du CV', [downloadController::class, 'telechargerCv'])->name('downloadcv');
 
 Route::get('/A Propos', function () {
     return view('about');
@@ -26,8 +26,4 @@ Route::get('/Contactez-nous', function () {
     return view('contact');
 })->name('contactez_moi');
 
-Route::post('Envoie en cours',[ContactController::class,'sendingMsg'])->name('envoie_de_mail');
-
-
-
-
+Route::post('Envoie en cours', [ContactController::class, 'sendingMsg'])->name('envoie_de_mail');

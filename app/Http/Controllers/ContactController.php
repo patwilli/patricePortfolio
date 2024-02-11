@@ -3,31 +3,21 @@
 namespace App\Http\Controllers;
 
 use App\Mail\ContactMail;
+use App\Mail\HelloClientMail;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Mail;
+use Swift_Mailer;
+use Swift_SmtpTransport;
+use Exception;
 
 class ContactController extends Controller
 {
     public function sendingMsg(Request $request)
     {
-        $mon_email = "patricesossavi@gmail.com";
         $nom_prenom = $request->nom_prenom;
-        $telephone = $request->telephone;
-        $email = $request->email;
-        $message = $request->message;
-        // return view('mail-contact', compact(
-        //     'nom_prenom',
-        //     'telephone',
-        //     'email',
-        //     'message'
-        // ));
-        Mail::to($mon_email)->send(new ContactMail($nom_prenom, $telephone, $email, $message));
-
-        // try {
-        //     Mail::to($mon_email)->send(new ContactMail($nom_prenom, $telephone, $email, $message));
-        //     return 'mail envoyé avec succes !';
-        // } catch (\Exception $e) {
-        //     return 'échec !';
-        // }
+        $description = $request->description;
+        Mail::to('patricesossavi@gmail.com')->send(new HelloClientMail($nom_prenom, $description));
+        $success = "Message envoyé avec succès";
+        return redirect()->back()->with('success', $success);
     }
 }
